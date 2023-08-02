@@ -1,0 +1,33 @@
+
+-------------------------------CYCLE #2019-------------------------------
+35 32 19 14 33 36 34 46 37 24 4 3 40 45 38 31 44 48 
+10 30 27 18 21 41 5 42 22 26 23 12 2 15 9 43 16 
+
+----Correct Guesses: [19, 37, 31, 42, 2]
+
+Dollar Signs: [48, 35]  |||   Bronze Multiplier: X150  |||  Lucky loser: False
+
+-----Won amount: 0 === Multiplier: X0 -- Bid: 2500
+
+              ---COLOR CHANCES---   
+Green: 17.14 Blue: 14.29 Red: 8.57 Yellow: 14.29
+Orange: 8.57 Purple: 11.43 Brown: 11.43 Black: 14.29 
+
+              ------Bonuses------
+Bronze = False ||| Silver = False ||| Gold = False ||| Dollar = None
+-------------------------------CYCLE #2020-------------------------------
+26 12 40 43 41 20 7 36 45 21 15 3 34 18 39 29 24 48 
+5 35 17 22 44 8 9 30 13 38 33 6 4 1 14 10 23 
+
+----Correct Guesses: []
+
+Dollar Signs: [22, 3]  |||   Bronze Multiplier: X100  |||  Lucky loser: True
+
+-----Won amount: 125000 === Multiplier: X0 -- Bid: 2500
+
+              ---COLOR CHANCES---   
+Green: 11.43 Blue: 8.57 Red: 14.29 Yellow: 14.29
+Orange: 11.43 Purple: 14.29 Brown: 14.29 Black: 11.43 
+
+              ------Bonuses------
+Bronze = False ||| Silver = False ||| Gold = False ||| Dollar = None
