@@ -1,49 +1,65 @@
 
--------------------------------CYCLE #11827-------------------------------
-23 27 33 46 47 11 16 10 15 41 48 26 19 28 39 4 38 9 
-29 1 21 45 32 2 40 20 44 5 36 24 42 6 8 17 3 
+-------------------------------CYCLE #2389-------------------------------
+16 12 36 32 39 14 35 6 34 7 1 37 27 38 18 19 23 43 
+24 48 40 31 8 9 2 3 33 20 21 26 22 30 42 29 15 
+
+----Correct Guesses: [16, 37, 31, 3]
+
+Dollar Signs: [2, 3]  |||   Bronze Multiplier: X90  |||  Lucky loser: False
+
+-----Won amount: 0 === Multiplier: X0 -- Bid: 200
+
+              ---COLOR CHANCES---   
+Green: 14.29 Blue: 14.29 Red: 8.57 Yellow: 14.29
+Orange: 14.29 Purple: 8.57 Brown: 8.57 Black: 17.14 
+
+              ------Bonuses------
+Bronze = False ||| Silver = False ||| Gold = False ||| Dollar = Double
+-------------------------------CYCLE #2390-------------------------------
+29 46 24 36 11 13 23 6 33 18 2 1 7 21 48 12 30 42 
+10 38 43 41 4 8 26 40 32 15 27 14 19 39 20 5 34 
 
 ----Correct Guesses: []
 
-Dollar Signs: [23, 6]  |||   Bronze Multiplier: X100  |||  Lucky loser: True
+Dollar Signs: [6, 24]  |||   Bronze Multiplier: X300  |||  Lucky loser: True
 
------Won amount: 15000 === Multiplier: X0 -- Bid: 300
+-----Won amount: 10000 === Multiplier: X0 -- Bid: 200
 
               ---COLOR CHANCES---   
-Green: 11.43 Blue: 11.43 Red: 14.29 Yellow: 8.57
-Orange: 11.43 Purple: 14.29 Brown: 11.43 Black: 17.14 
+Green: 17.14 Blue: 11.43 Red: 8.57 Yellow: 14.29
+Orange: 11.43 Purple: 11.43 Brown: 11.43 Black: 14.29 
 
               ------Bonuses------
 Bronze = False ||| Silver = False ||| Gold = False ||| Dollar = None
--------------------------------CYCLE #11828-------------------------------
-44 26 8 32 2 3 40 16 46 45 7 38 43 5 28 23 13 9 
-42 4 33 25 15 12 39 24 36 34 1 30 47 19 14 21 18 
+-------------------------------CYCLE #2391-------------------------------
+44 35 6 1 38 12 42 36 20 33 30 11 9 26 4 23 19 21 
+31 47 37 40 22 48 7 45 24 5 34 8 28 27 25 46 39 
 
-----Correct Guesses: [7, 43, 25, 14, 18]
+----Correct Guesses: [31, 37, 45, 25]
 
-Dollar Signs: [5, 47]  |||   Bronze Multiplier: X100  |||  Lucky loser: False
+Dollar Signs: [8, 27]  |||   Bronze Multiplier: X7500  |||  Lucky loser: False
 
------Won amount: 0 === Multiplier: X0 -- Bid: 300
+-----Won amount: 0 === Multiplier: X0 -- Bid: 200
 
               ---COLOR CHANCES---   
-Green: 14.29 Blue: 8.57 Red: 11.43 Yellow: 11.43
-Orange: 14.29 Purple: 14.29 Brown: 11.43 Black: 14.29 
+Green: 8.57 Blue: 11.43 Red: 11.43 Yellow: 14.29
+Orange: 14.29 Purple: 17.14 Brown: 11.43 Black: 11.43 
 
               ------Bonuses------
 Bronze = False ||| Silver = False ||| Gold = False ||| Dollar = None
--------------------------------CYCLE #11829-------------------------------
-47 19 17 6 21 22 25 7 33 41 27 10 30 1 11 16 3 35 
-43 46 2 29 24 8 9 48 40 36 4 37 20 15 12 14 44 
+-------------------------------CYCLE #2392-------------------------------
+25 34 16 26 37 11 46 47 31 33 23 48 22 2 9 36 12 42 
+45 39 15 8 43 30 3 24 4 20 18 14 10 5 17 40 41 
 
-----Correct Guesses: [25, 7, 43, 14]
+----Correct Guesses: [25, 16, 37, 31, 45, 3]
 
-Dollar Signs: [48, 27]  |||   Bronze Multiplier: X1000  |||  Lucky loser: False
+Dollar Signs: [20, 24]  |||   Bronze Multiplier: X150  |||  Lucky loser: False
 
------Won amount: 0 === Multiplier: X0 -- Bid: 300
+-----Won amount: 3000 === Multiplier: X15 -- Bid: 200
 
               ---COLOR CHANCES---   
-Green: 5.71 Blue: 17.14 Red: 17.14 Yellow: 14.29
-Orange: 8.57 Purple: 14.29 Brown: 8.57 Black: 14.29 
+Green: 17.14 Blue: 8.57 Red: 14.29 Yellow: 11.43
+Orange: 14.29 Purple: 11.43 Brown: 8.57 Black: 14.29 
 
               ------Bonuses------
 Bronze = False ||| Silver = False ||| Gold = False ||| Dollar = None
