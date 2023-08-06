@@ -1,4 +1,5 @@
 import random
+import json
 
 class Game():
 
@@ -147,6 +148,7 @@ class Game():
 
         for i in range(self.tot_turns-self.turns,self.tot_turns):
 
+            fjs = open("signs.json","w")
             f.write(f"\n-------------------------------CYCLE #{i+1}-------------------------------")
             for j in range(0,35):
                 if j % 18 == 0:
@@ -155,22 +157,19 @@ class Game():
                     
                 f.writelines(f"{str(self.tot_machine_numbers[i][j])} ")
 
-            f.writelines(f"\n\n----Correct Guesses: {str(self.pulled_numbers[i])}")
+            f.writelines(f"\n\n----Correct Guesses: {str(self.pulled_numbers[i])}")  # print the guessed numbers
 
             f.writelines(f"\n\nDollar Signs: {self.dollar_numbers[i]}  |||   Bronze Multiplier: X{self.multipliers[self.bronze_numbers[i] - 5]}  |||  Lucky loser: {self.lucky_loser_wins[i]}")
+            #same line just in json format,testing out 
+            js_dict_temp  = {"$":{self.dollar_numbers[i]},"BRONZE":{self.multipliers[self.bronze_numbers[i] - 5]},"LUCKY_LOSER":{self.lucky_loser_wins[i]}}
+            json.dump(fjs,js_dict_temp,indent=2)
+
 
             f.writelines(f"\n\n-----Won amount: {self.tot_winnings[i]} === Multiplier: X{self.win_mult[i]} -- Bid: {self.game_bid}")
 
-            green_chance = round(self.tot_machine_colors[i].count("green") / 35 * 100,2)
-            blue_chance = round(self.tot_machine_colors[i].count("blue") / 35 * 100,2)
-            red_chance = round(self.tot_machine_colors[i].count("red") / 35 * 100,2)
-            yellow_chance = round(self.tot_machine_colors[i].count("yellow") / 35 * 100,2)
-            orange_chance = round(self.tot_machine_colors[i].count("orange") / 35 * 100,2)
-            purple_chance = round(self.tot_machine_colors[i].count("purple") / 35 * 100,2)
-            brown_chance = round(self.tot_machine_colors[i].count("brown") / 35 * 100,2)
-            black_chance = round(self.tot_machine_colors[i].count("black") / 35 * 100,2)
+            #added function for color chances
+            self.get_color_chances(i,f)
 
-            f.writelines(f"\n\n              ---COLOR CHANCES---   \nGreen: {green_chance} Blue: {blue_chance} Red: {red_chance} Yellow: {yellow_chance}\nOrange: {orange_chance} Purple: {purple_chance} Brown: {brown_chance} Black: {black_chance} \n")
 
             f.writelines(f"\n              ------Bonuses------\nBronze = {self.bronze_bonuses[i]} ||| Silver = {self.silver_bonuses[i]} ||| Gold = {self.gold_bonuses[i]} ||| Dollar = ")
 
@@ -181,6 +180,7 @@ class Game():
             else:
                 f.write("None")
 
+            fjs.close()
         
         
 
@@ -245,3 +245,15 @@ class Game():
         self.bronze_numbers.append(bronze_limit)
 
         return cur_machine_numbers,dollar_bonus,bronze_limit
+    
+    def get_color_chances(self,i,f):
+        green_chance = round(self.tot_machine_colors[i].count("green") / 35 * 100,2)
+        blue_chance = round(self.tot_machine_colors[i].count("blue") / 35 * 100,2)
+        red_chance = round(self.tot_machine_colors[i].count("red") / 35 * 100,2)
+        yellow_chance = round(self.tot_machine_colors[i].count("yellow") / 35 * 100,2)
+        orange_chance = round(self.tot_machine_colors[i].count("orange") / 35 * 100,2)
+        purple_chance = round(self.tot_machine_colors[i].count("purple") / 35 * 100,2)
+        brown_chance = round(self.tot_machine_colors[i].count("brown") / 35 * 100,2)
+        black_chance = round(self.tot_machine_colors[i].count("black") / 35 * 100,2)       
+
+        f.writelines(f"\n\n              ---COLOR CHANCES---   \nGreen: {green_chance} Blue: {blue_chance} Red: {red_chance} Yellow: {yellow_chance}\nOrange: {orange_chance} Purple: {purple_chance} Brown: {brown_chance} Black: {black_chance} \n")

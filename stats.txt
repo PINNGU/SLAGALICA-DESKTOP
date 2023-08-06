@@ -1,0 +1,49 @@
+
+-------------------------------CYCLE #11827-------------------------------
+23 27 33 46 47 11 16 10 15 41 48 26 19 28 39 4 38 9 
+29 1 21 45 32 2 40 20 44 5 36 24 42 6 8 17 3 
+
+----Correct Guesses: []
+
+Dollar Signs: [23, 6]  |||   Bronze Multiplier: X100  |||  Lucky loser: True
+
+-----Won amount: 15000 === Multiplier: X0 -- Bid: 300
+
+              ---COLOR CHANCES---   
+Green: 11.43 Blue: 11.43 Red: 14.29 Yellow: 8.57
+Orange: 11.43 Purple: 14.29 Brown: 11.43 Black: 17.14 
+
+              ------Bonuses------
+Bronze = False ||| Silver = False ||| Gold = False ||| Dollar = None
+-------------------------------CYCLE #11828-------------------------------
+44 26 8 32 2 3 40 16 46 45 7 38 43 5 28 23 13 9 
+42 4 33 25 15 12 39 24 36 34 1 30 47 19 14 21 18 
+
+----Correct Guesses: [7, 43, 25, 14, 18]
+
+Dollar Signs: [5, 47]  |||   Bronze Multiplier: X100  |||  Lucky loser: False
+
+-----Won amount: 0 === Multiplier: X0 -- Bid: 300
+
+              ---COLOR CHANCES---   
+Green: 14.29 Blue: 8.57 Red: 11.43 Yellow: 11.43
+Orange: 14.29 Purple: 14.29 Brown: 11.43 Black: 14.29 
+
+              ------Bonuses------
+Bronze = False ||| Silver = False ||| Gold = False ||| Dollar = None
+-------------------------------CYCLE #11829-------------------------------
+47 19 17 6 21 22 25 7 33 41 27 10 30 1 11 16 3 35 
+43 46 2 29 24 8 9 48 40 36 4 37 20 15 12 14 44 
+
+----Correct Guesses: [25, 7, 43, 14]
+
+Dollar Signs: [48, 27]  |||   Bronze Multiplier: X1000  |||  Lucky loser: False
+
+-----Won amount: 0 === Multiplier: X0 -- Bid: 300
+
+              ---COLOR CHANCES---   
+Green: 5.71 Blue: 17.14 Red: 17.14 Yellow: 14.29
+Orange: 8.57 Purple: 14.29 Brown: 8.57 Black: 14.29 
+
+              ------Bonuses------
+Bronze = False ||| Silver = False ||| Gold = False ||| Dollar = None
