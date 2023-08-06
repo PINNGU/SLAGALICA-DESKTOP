@@ -143,12 +143,12 @@ class Game():
         self.tot_turns = self.tot_turns + self.turns
 
 
-    def get_stats(self,f): # print all the characteristics stats and numbers of each cycle
+    def get_stats(self,f,fjs): # print all the characteristics stats and numbers of each cycle
           
 
         for i in range(self.tot_turns-self.turns,self.tot_turns):
 
-            fjs = open("signs.json","w")
+            
             f.write(f"\n-------------------------------CYCLE #{i+1}-------------------------------")
             for j in range(0,35):
                 if j % 18 == 0:
@@ -158,11 +158,14 @@ class Game():
                 f.writelines(f"{str(self.tot_machine_numbers[i][j])} ")
 
             f.writelines(f"\n\n----Correct Guesses: {str(self.pulled_numbers[i])}")  # print the guessed numbers
-
             f.writelines(f"\n\nDollar Signs: {self.dollar_numbers[i]}  |||   Bronze Multiplier: X{self.multipliers[self.bronze_numbers[i] - 5]}  |||  Lucky loser: {self.lucky_loser_wins[i]}")
+            
             #same line just in json format,testing out 
-            js_dict_temp  = {"$":{self.dollar_numbers[i]},"BRONZE":{self.multipliers[self.bronze_numbers[i] - 5]},"LUCKY_LOSER":{self.lucky_loser_wins[i]}}
-            json.dump(fjs,js_dict_temp,indent=2)
+
+            #json format can be used to easily get data and use it for own purposes,in this case the rarity of symbols and specials
+            
+            js_dict_temp  = {"CYCLE":i+1,"$":self.dollar_numbers[i],"BRONZE":self.multipliers[self.bronze_numbers[i] - 5],"LUCKY_LOSER":self.lucky_loser_wins[i]}
+            json.dump(js_dict_temp,fjs,indent=1)
 
 
             f.writelines(f"\n\n-----Won amount: {self.tot_winnings[i]} === Multiplier: X{self.win_mult[i]} -- Bid: {self.game_bid}")
@@ -180,7 +183,7 @@ class Game():
             else:
                 f.write("None")
 
-            fjs.close()
+
         
         
 
