@@ -23,8 +23,11 @@ class Login():
                     self.players.append(p)
 
 
-    def names_exists(self):
-        pass
+    def name_exists(self,name):
+        if name in self.players:
+            return True
+        
+        return False
 
     def add_name(self):
         pass
@@ -73,24 +76,26 @@ class Login():
 
             if event == "START":
                     #implement to check if name in list and then add
-                    self.name = values["NAME"]
+
+                    name = values["NAME"]
                     self.age = str(values["AGE"])
                     self.gender = "M" if  values["GENDER"] else "F"
-                    self.add_name()
-                    print(self.players)
+
+                    if self.name_exists(name):
+                        pass #add text in app
+                    else:
+                        self.add_name() # else add name
+
+
+                    print(self.players) #testing
 
 
                 
 
             if event == "PLAY-TUT" or event == "NO-TUT":
                 window["GOTO-TUT"].update("You must enter credentials first.")
-                with open("players.json","r") as f:
-                    for line in f:
-                        print(json.dumps(line))
-                
-                print(self.players)
-                f.close()
 
+                
             
 
         window.close()
