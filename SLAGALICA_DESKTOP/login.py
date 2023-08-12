@@ -4,7 +4,6 @@ import json
 
 class Login():
 
-    theme = "DarkBlue10"
     name = ""
     age = ""
     gender = ""
@@ -12,6 +11,9 @@ class Login():
     score = 0
     total_score = "0"
     players = []
+
+    def __init__(self,theme):
+        self.theme = theme
 
     def get_all_players(self):
         with open("players.txt","r") as f:
