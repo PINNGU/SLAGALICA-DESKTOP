@@ -48,9 +48,30 @@ class Login():
                 else:
                     return False
 
+
+
     def add_new_user(self):
         temp = {"NAME":self.name,"PASS":self.password,"AGE":self.age,"GENDER":self.gender,"SCORE":self.total_score}
         self.players.append(temp)
+
+
+
+    def tutorial_window(self):
+        psg.theme(self.theme)
+        lay = [
+            [psg.Push(),psg.Image("close.png",enable_events=True,pad = (0,0),key = "CLOSE",size = (24,24))],
+            [psg.Frame("Age",title_color="#72FCD5",expand_x=True,font = "Calibri 18",layout = [[
+                psg.Slider(orientation="h",default_value="14",range = (8,88),trough_color="#006685",key = "AGE")]])],
+        ]
+
+        win = psg.Window(title="TUTORIAL",layout = lay,no_titlebar=True)
+
+        while True:
+
+            event,values = win.read()
+            if event == psg.WINDOW_CLOSED or event == "CLOSE":
+                break
+
 
 
     def create_win(self):
@@ -122,22 +143,26 @@ class Login():
                         self.LOGGED_IN = True
                     else:
                         window["NOTIFY"].update("Wrong Password!")
-
-
-
-
                 
 
-            if event == "PLAY-TUT" or event == "NO-TUT":
+            if event == "PLAY-TUT":
                 if not self.LOGGED_IN:
                     window["GOTO-TUT"].update("You must enter credentials first.")
                 else:
-                    pass
-                print(self.players)
+                    window.close()
+                    return self.tutorial_window()
+
+    
+            if event == "NO-TUT":
+                if not self.LOGGED_IN:
+                    window["GOTO-TUT"].update("You must enter credentials first.")
+                else:
+                    window.close()
+                    return True
 
                 
             
 
         window.close()
-        return
+        return False
     
