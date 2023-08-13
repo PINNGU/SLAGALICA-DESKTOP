@@ -14,8 +14,9 @@ class Login():
     players = []
     LOGGED_IN = False
 
-    def __init__(self,theme):
+    def __init__(self,theme,version):
         self.theme = theme
+        self.version = version
 
     def get_player_values(self,values):
         self.name = values["NAME"]
@@ -60,18 +61,32 @@ class Login():
         psg.theme(self.theme)
         lay = [
             [psg.Push(),psg.Image("close.png",enable_events=True,pad = (0,0),key = "CLOSE",size = (24,24))],
-            [psg.Frame("Age",title_color="#72FCD5",expand_x=True,font = "Calibri 18",layout = [[
-                psg.Slider(orientation="h",default_value="14",range = (8,88),trough_color="#006685",key = "AGE")]])],
+            [psg.Text("Slagalica,popular Serbian quiz-show, made in english.",text_color="#72FCD5",font = "Franklin 14")],
+            [psg.Frame("Game #1",title_color="#72FCD5",expand_x=True,font = "Calibri 14",layout = [[
+                psg.Text("Very simple, test your vocabulary - enter the longest possible word!",text_color="#72FCD5",font = "Franklin 12")]])],
+            [psg.Frame("Game #2",title_color="#72FCD5",expand_x=True,font = "Calibri 14",layout = [[
+                psg.Text("Using the given digits,get as closest as you can to the main number!",text_color="#72FCD5",font = "Franklin 12")]])],
+            [psg.Frame("Game #3",title_color="#72FCD5",expand_x=True,font = "Calibri 14",layout = [[
+                psg.Text("Nothing yet...",text_color="#72FCD5",font = "Franklin 12")]])],
+            [psg.Frame("Game #4",title_color="#72FCD5",expand_x=True,font = "Calibri 14",layout = [[
+                psg.Text("Nothing yet...",text_color="#72FCD5",font = "Franklin 12")]])],
+            [psg.VPush()],
+            [psg.Push(),psg.Button("READY!",key = "START",font = "Calibri 24",mouseover_colors="#006685",border_width=0),psg.Push()]
         ]
 
-        win = psg.Window(title="TUTORIAL",layout = lay,no_titlebar=True)
+        win = psg.Window(title="TUTORIAL",layout = lay,no_titlebar=True,size = (800,400))
 
         while True:
 
             event,values = win.read()
             if event == psg.WINDOW_CLOSED or event == "CLOSE":
-                break
-
+                win.close()
+                return False
+            
+            if event == "START":
+                win.close()
+                return True
+            
 
 
     def create_win(self):
@@ -95,14 +110,18 @@ class Login():
             [psg.Text("Do you wish to play the tutorial?",font="Franklin 16",text_color="#DAFC6A")],
             [psg.Button("Lets do it!",key = "PLAY-TUT",font = "Calibri 14",mouseover_colors="#006685",border_width=0),
              psg.Button("No thank you.",key = "NO-TUT",font = "Calibri 14",mouseover_colors="#006685",border_width=0)],
-            [psg.Text("",key = "GOTO-TUT",font = "Franklin 16",text_color="#DAFC6A")]
+            [psg.Text("",key = "GOTO-TUT",font = "Franklin 16",text_color="#DAFC6A"),psg.VPush()],
+            [psg.Text("")],
+            [psg.Text("")],
+            [psg.Push(),psg.Image("logo.png",size = (200,140))],
+            [psg.Push(),psg.Text(f"VERSION {self.version}",key = "VERSION",font="Franklin 12",text_color="#DAFC6A")]
             
         ])
 
         lay = [
             [psg.Push(),psg.Image("close.png",enable_events=True,pad = (0,0),key = "CLOSE",size = (24,24))],
             [left,psg.VerticalSeparator(),right],
-            [psg.VPush()]
+
             
         ]
 
