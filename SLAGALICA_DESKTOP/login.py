@@ -7,32 +7,50 @@ class Login():
     name = ""
     age = ""
     gender = ""
+    password = ""
     tutorial = False
     score = 0
     total_score = "0"
     players = []
+    LOGGED_IN = False
 
     def __init__(self,theme):
         self.theme = theme
+
+    def get_player_values(self,values):
+        self.name = values["NAME"]
+        self.password = values["PASS"]
+        self.age = str(values["AGE"])
+        self.gender = "M" if  values["GENDER"] else "F"
 
     def get_all_players(self):
         with open("players.txt","r") as f:
             pl = f.read()
             pl = pl.replace(",","\n")
             pl = pl.split("\n")
-            for i,p in enumerate(pl):
-                if i % 4 == 0:
-                    self.players.append(p)
-
+            for i in range(0,len(pl)//5):
+                temp = {"NAME":pl[i * 5],"PASS":pl[i * 5 + 1],"AGE":pl[i * 5 + 2],"GENDER":pl[i  * 5 + 3],"SCORE":pl[i * 5 + 4]}
+                self.players.append(temp)
+  
 
     def name_exists(self,name):
-        if name in self.players:
-            return True
+        for player in self.players:
+            if player["NAME"] == name:
+                return True
         
         return False
+    
+    def match_passwords(self):
+        for player in self.players:
+            if self.name == player["NAME"]:
+                if self.password == player["PASS"]:
+                    return True
+                else:
+                    return False
 
-    def add_name(self):
-        pass
+    def add_new_user(self):
+        temp = {"NAME":self.name,"PASS":self.password,"AGE":self.age,"GENDER":self.gender,"SCORE":self.total_score}
+        self.players.append(temp)
 
 
     def create_win(self):
@@ -42,16 +60,20 @@ class Login():
 
         left = psg.Column(size=(480,350),layout = [
             [psg.Text("USERNAME:",text_color="#72FCD5",font = "Franklin 18"),psg.Input(key = "NAME",text_color="#24004A",font="Franklin 16")],
+            [psg.Text("PASSWORD:",text_color="#72FCD5",font = "Franklin 18"),psg.Input(key = "PASS",text_color="#24004A",font="Franklin 16")],
             [psg.Frame("Gender",title_color="#72FCD5",expand_x=True,font = "Calibri 18",layout = [
                 [psg.Radio("Male","GENDER",text_color="#A5f2CF",font = "Calibri 16",key = "GENDER"),psg.Radio("Female","GENDER",text_color="#A5f2CF",font = "Calibri 16",key = "GENDER")]])],
             [psg.Frame("Age",title_color="#72FCD5",expand_x=True,font = "Calibri 18",layout = [[
                 psg.Slider(orientation="h",default_value="14",range = (8,88),trough_color="#006685",key = "AGE")]])],
-            [psg.Button("Create Account",key = "START",font = "Calibri 18",mouseover_colors="#006685")]
+            [psg.Button("Sign In",key = "SIGNIN",font = "Calibri 18",mouseover_colors="#006685",border_width=0),
+             psg.Button("Log In",key = "LOGIN",font = "Calibri 18",mouseover_colors="#006685",border_width=0)],
+             [psg.Text("",key="NOTIFY",font = "TimesNewRoman 18",text_color="#A5f2CF")]
         ])
 
         right = psg.Column(size= (320,350),layout = [
             [psg.Text("Do you wish to play the tutorial?",font="Franklin 16",text_color="#DAFC6A")],
-            [psg.Button("Lets do it!",key = "PLAY-TUT",font = "Calibri 14",mouseover_colors="#006685"),psg.Button("No thank you.",key = "NO-TUT",font = "Calibri 14",mouseover_colors="#006685")],
+            [psg.Button("Lets do it!",key = "PLAY-TUT",font = "Calibri 14",mouseover_colors="#006685",border_width=0),
+             psg.Button("No thank you.",key = "NO-TUT",font = "Calibri 14",mouseover_colors="#006685",border_width=0)],
             [psg.Text("",key = "GOTO-TUT",font = "Franklin 16",text_color="#DAFC6A")]
             
         ])
@@ -76,26 +98,42 @@ class Login():
             if event == psg.WINDOW_CLOSED or event == "CLOSE":
                 break
 
-            if event == "START":
-                    #implement to check if name in list and then add
+            if event == "SIGNIN":
+                    self.get_player_values(values)
 
-                    name = values["NAME"]
-                    self.age = str(values["AGE"])
-                    self.gender = "M" if  values["GENDER"] else "F"
-
-                    if self.name_exists(name):
-                        pass #add text in app
+                    if self.name_exists(self.name):
+                       window["NOTIFY"].update("This player already exists,try logging in.") 
+                    elif self.name == "":
+                        window["NOTIFY"].update("Not a valid username.") 
                     else:
-                        self.add_name() # else add name
+                        self.add_new_user() # else add name
+                        window["NOTIFY"].update("Successfuly signed in!")
+                        self.LOGGED_IN = True
+
+            if event == "LOGIN":
+
+                self.get_player_values(values)
+
+                if not self.name_exists(self.name):
+                    window["NOTIFY"].update("This player doesn't exist.Sign in first.") 
+                elif self.name_exists(self.name):
+                    if self.match_passwords():
+                        window["NOTIFY"].update("Successfuly logged in!")
+                        self.LOGGED_IN = True
+                    else:
+                        window["NOTIFY"].update("Wrong Password!")
 
 
-                    print(self.players) #testing
 
 
                 
 
             if event == "PLAY-TUT" or event == "NO-TUT":
-                window["GOTO-TUT"].update("You must enter credentials first.")
+                if not self.LOGGED_IN:
+                    window["GOTO-TUT"].update("You must enter credentials first.")
+                else:
+                    pass
+                print(self.players)
 
                 
             
