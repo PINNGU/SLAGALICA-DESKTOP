@@ -96,7 +96,7 @@ class Login():
 
         left = psg.Column(size=(480,350),layout = [
             [psg.Text("USERNAME:",text_color="#72FCD5",font = "Franklin 18"),psg.Input(key = "NAME",text_color="#24004A",font="Franklin 16")],
-            [psg.Text("PASSWORD:",text_color="#72FCD5",font = "Franklin 18"),psg.Input(key = "PASS",text_color="#24004A",font="Franklin 16")],
+            [psg.Text("PASSWORD:",text_color="#72FCD5",font = "Franklin 18"),psg.Input(key = "PASS",text_color="#24004A",font="Franklin 16",password_char="•")],
             [psg.Frame("Gender",title_color="#72FCD5",expand_x=True,font = "Calibri 18",layout = [
                 [psg.Radio("Male","GENDER",text_color="#A5f2CF",font = "Calibri 16",key = "GENDER"),psg.Radio("Female","GENDER",text_color="#A5f2CF",font = "Calibri 16",key = "GENDER")]])],
             [psg.Frame("Age",title_color="#72FCD5",expand_x=True,font = "Calibri 18",layout = [[
