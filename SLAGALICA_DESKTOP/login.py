@@ -113,13 +113,13 @@ class Login():
             [psg.Text("",key = "GOTO-TUT",font = "Franklin 16",text_color="#DAFC6A"),psg.VPush()],
             [psg.Text("")],
             [psg.Text("")],
-            [psg.Push(),psg.Image("logo.png",size = (200,140))],
+            [psg.Push(),psg.Image("images/logo.png",size = (200,140))],
             [psg.Push(),psg.Text(f"VERSION {self.version}",key = "VERSION",font="Franklin 12",text_color="#DAFC6A")]
             
         ])
 
         lay = [
-            [psg.Push(),psg.Image("close.png",enable_events=True,pad = (0,0),key = "CLOSE",size = (24,24))],
+            [psg.Push(),psg.Image("images/close.png",enable_events=True,pad = (0,0),key = "CLOSE",size = (24,24))],
             [left,psg.VerticalSeparator(),right],
 
             
