@@ -40,40 +40,49 @@ class GameOne():
         lay1 = psg.Column(size = (680,400),layout = [
             
             [
-                 psg.Button(button_text = self.letters[0],size=(13,5),pad = (0,0),key = "L0",mouseover_colors="#006685"),
-                 psg.Button(button_text = self.letters[1],size=(13,5),pad = (0,0),key = "L1",mouseover_colors="#006685"),
-                 psg.Button(button_text = self.letters[2],size=(13,5),pad = (0,0),key = "L2",mouseover_colors="#006685"),
-                 psg.Button(button_text = self.letters[3],size=(13,5),pad = (0,0),key = "L3",mouseover_colors="#006685"),
-                 psg.Button(button_text = self.letters[4],size=(13,5),pad = (0,0),key = "L4",mouseover_colors="#006685"),
-                 psg.Button(button_text = self.letters[5],size=(13,5),pad = (0,0),key = "L5",mouseover_colors="#006685")
+                 
+                 psg.Button(button_text = self.letters[0],size=(13,5),pad = (0,0),key = "L0",mouseover_colors="#006685",button_color=("#F2FF00","#010345")),
+                 psg.Button(button_text = self.letters[1],size=(13,5),pad = (0,0),key = "L1",mouseover_colors="#006685",button_color=("#F2FF00","#010345")),
+                 psg.Button(button_text = self.letters[2],size=(13,5),pad = (0,0),key = "L2",mouseover_colors="#006685",button_color=("#F2FF00","#010345")),
+                 
+                 psg.Button(button_text = self.letters[3],size=(13,5),pad = (0,0),key = "L3",mouseover_colors="#006685",button_color=("#F2FF00","#010345")),
+                 psg.Button(button_text = self.letters[4],size=(13,5),pad = (0,0),key = "L4",mouseover_colors="#006685",button_color=("#F2FF00","#010345")),
+                 psg.Button(button_text = self.letters[5],size=(13,5),pad = (0,0),key = "L5",mouseover_colors="#006685",button_color=("#F2FF00","#010345"))
+                 
                  ],
                 [
-                 psg.Button(button_text = self.letters[6],size=(13,5),pad = (0,0),key = "L6",mouseover_colors="#006685"),
-                 psg.Button(button_text = self.letters[7],size=(13,5),pad = (0,0),key = "L7",mouseover_colors="#006685"),
-                 psg.Button(button_text = self.letters[8],size=(13,5),pad = (0,0),key = "L8",mouseover_colors="#006685"),
-                 psg.Button(button_text = self.letters[9],size=(13,5),pad = (0,0),key = "L9",mouseover_colors="#006685"),
-                 psg.Button(button_text = self.letters[10],size=(13,5),pad = (0,0),key = "L10",mouseover_colors="#006685"),
-                 psg.Button(button_text = self.letters[11],size=(13,5),pad = (0,0),key = "L11",mouseover_colors="#006685"),
-                 psg.Push(),
+                
+                 psg.Button(button_text = self.letters[6],size=(13,5),pad = (0,0),key = "L6",mouseover_colors="#006685",button_color=("#F2FF00","#010345")),
+                 psg.Button(button_text = self.letters[7],size=(13,5),pad = (0,0),key = "L7",mouseover_colors="#006685",button_color=("#F2FF00","#010345")),
+                 psg.Button(button_text = self.letters[8],size=(13,5),pad = (0,0),key = "L8",mouseover_colors="#006685",button_color=("#F2FF00","#010345")),
+                 psg.Button(button_text = self.letters[9],size=(13,5),pad = (0,0),key = "L9",mouseover_colors="#006685",button_color=("#F2FF00","#010345")),
+                 psg.Button(button_text = self.letters[10],size=(13,5),pad = (0,0),key = "L10",mouseover_colors="#006685",button_color=("#F2FF00","#010345")),
+                 psg.Button(button_text = self.letters[11],size=(13,5),pad = (0,0),key = "L11",mouseover_colors="#006685",button_color=("#F2FF00","#010345"))
                  ],
                  [psg.Text()],
                  [psg.Frame("Your Word",title_color="#72FCD5",layout = [
                         [
-                            psg.Button(size = (5,3),pad = (0,0),visible=False,enable_events=False,key = "0",mouseover_colors="#006685"),
-                            psg.Button(size = (5,3),pad = (0,0),visible=False,enable_events=False,key = "1",mouseover_colors="#006685"),
-                            psg.Button(size = (5,3),pad = (0,0),visible=False,enable_events=False,key = "2",mouseover_colors="#006685"),
-                            psg.Button(size = (5,3),pad = (0,0),visible=False,enable_events=False,key = "3",mouseover_colors="#006685"),
-                            psg.Button(size = (5,3),pad = (0,0),visible=False,enable_events=False,key = "4",mouseover_colors="#006685"),
-                            psg.Button(size = (5,3),pad = (0,0),visible=False,enable_events=False,key = "5",mouseover_colors="#006685"),
-                            psg.Button(size = (5,3),pad = (0,0),visible=False,enable_events=False,key = "6",mouseover_colors="#006685"),
-                            psg.Button(size = (5,3),pad = (0,0),visible=False,enable_events=False,key = "7",mouseover_colors="#006685"),
-                            psg.Button(size = (5,3),pad = (0,0),visible=False,enable_events=False,key = "8",mouseover_colors="#006685"),
-                            psg.Button(size = (5,3),pad = (0,0),visible=False,enable_events=False,key = "9",mouseover_colors="#006685"),
-                            psg.Button(size = (5,3),pad = (0,0),visible=False,enable_events=False,key = "10",mouseover_colors="#006685"),
-                            psg.Button(size = (5,3),pad = (0,0),visible=False,enable_events=False,key = "11",mouseover_colors="#006685"),
-                        ]]),psg.Image("images/backspace.png",enable_events=True,key = "BACK",size = (40,40)),
-                            psg.Text("",key = "TEST",font="Franklin 16",text_color="#72FCD5"),
-                            psg.Push(),
+                            psg.Button(size = (5,3),pad = (0,0),visible=False,enable_events=False,key = "0",mouseover_colors="#006685",button_color=("#F2FF00","#010345")),
+                            psg.Button(size = (5,3),pad = (0,0),visible=False,enable_events=False,key = "1",mouseover_colors="#006685",button_color=("#F2FF00","#010345")),
+                            psg.Button(size = (5,3),pad = (0,0),visible=False,enable_events=False,key = "2",mouseover_colors="#006685",button_color=("#F2FF00","#010345")),
+                            psg.Button(size = (5,3),pad = (0,0),visible=False,enable_events=False,key = "3",mouseover_colors="#006685",button_color=("#F2FF00","#010345")),
+                            psg.Button(size = (5,3),pad = (0,0),visible=False,enable_events=False,key = "4",mouseover_colors="#006685",button_color=("#F2FF00","#010345")),
+                            psg.Button(size = (5,3),pad = (0,0),visible=False,enable_events=False,key = "5",mouseover_colors="#006685",button_color=("#F2FF00","#010345")),
+                            psg.Button(size = (5,3),pad = (0,0),visible=False,enable_events=False,key = "6",mouseover_colors="#006685",button_color=("#F2FF00","#010345")),
+                            psg.Button(size = (5,3),pad = (0,0),visible=False,enable_events=False,key = "7",mouseover_colors="#006685",button_color=("#F2FF00","#010345")),
+                            psg.Button(size = (5,3),pad = (0,0),visible=False,enable_events=False,key = "8",mouseover_colors="#006685",button_color=("#F2FF00","#010345")),
+                            psg.Button(size = (5,3),pad = (0,0),visible=False,enable_events=False,key = "9",mouseover_colors="#006685",button_color=("#F2FF00","#010345")),
+                            psg.Button(size = (5,3),pad = (0,0),visible=False,enable_events=False,key = "10",mouseover_colors="#006685",button_color=("#F2FF00","#010345")),
+                            psg.Button(size = (5,3),pad = (0,0),visible=False,enable_events=False,key = "11",mouseover_colors="#006685",button_color=("#F2FF00","#010345")),
+                        ]]),
+
+                            
+                            
+                 ],
+                [
+
+                        psg.Image("images/backspace.png",enable_events=True,key = "BACK",size = (40,40)),
+                        psg.Text("",key = "TEST",font="Franklin 16",text_color="#72FCD5")
                  ],
                  [
                     psg.Frame("Machine's Word",visible=False,title_color="#72FCD5",key = "MACH_FRAME",layout = [[
@@ -81,7 +90,8 @@ class GameOne():
                         ]]
                              ),
                     psg.Text("",key = "SCORE",text_color="#72FCD5",font = "Franklin 16",visible=False),
-                    psg.Image("images/continue.png",key = "CONTINUE",pad = (0,0),visible=False,enable_events=True)
+                    psg.Image("images/continue.png",key = "CONTINUE",pad = (0,0),visible=False,enable_events=True),
+                    
                  ]
                  
 
