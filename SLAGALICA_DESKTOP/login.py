@@ -10,7 +10,7 @@ class Login():
     password = ""
     tutorial = False
     score = 0
-    total_score = "0"
+    total_score = ""
     players = []
     LOGGED_IN = False
 
@@ -101,15 +101,15 @@ class Login():
                 [psg.Radio("Male","GENDER",text_color="#A5f2CF",font = "Calibri 16",key = "GENDER"),psg.Radio("Female","GENDER",text_color="#A5f2CF",font = "Calibri 16",key = "GENDER")]])],
             [psg.Frame("Age",title_color="#72FCD5",expand_x=True,font = "Calibri 18",layout = [[
                 psg.Slider(orientation="h",default_value="14",range = (8,88),trough_color="#006685",key = "AGE")]])],
-            [psg.Button("Sign In",key = "SIGNIN",font = "Calibri 18",mouseover_colors="#006685",border_width=0),
-             psg.Button("Log In",key = "LOGIN",font = "Calibri 18",mouseover_colors="#006685",border_width=0)],
+            [psg.Button("Sign In",key = "SIGNIN",font = "Calibri 18",mouseover_colors="#006685",border_width=0,button_color=("#F2FF00","#010345")),
+             psg.Button("Log In",key = "LOGIN",font = "Calibri 18",mouseover_colors="#006685",border_width=0,button_color=("#F2FF00","#010345"))],
              [psg.Text("",key="NOTIFY",font = "TimesNewRoman 18",text_color="#A5f2CF")]
         ])
 
         right = psg.Column(size= (320,350),layout = [
             [psg.Text("Do you wish to play the tutorial?",font="Franklin 16",text_color="#DAFC6A")],
-            [psg.Button("Lets do it!",key = "PLAY-TUT",font = "Calibri 14",mouseover_colors="#006685",border_width=0),
-             psg.Button("No thank you.",key = "NO-TUT",font = "Calibri 14",mouseover_colors="#006685",border_width=0)],
+            [psg.Button("Lets do it!",key = "PLAY-TUT",font = "Calibri 14",mouseover_colors="#006685",border_width=0,button_color=("#F2FF00","#010345")),
+             psg.Button("No thank you.",key = "NO-TUT",font = "Calibri 14",mouseover_colors="#006685",border_width=0,button_color=("#F2FF00","#010345"))],
             [psg.Text("",key = "GOTO-TUT",font = "Franklin 16",text_color="#DAFC6A"),psg.VPush()],
             [psg.Text("")],
             [psg.Text("")],

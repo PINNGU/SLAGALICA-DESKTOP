@@ -2,10 +2,10 @@
 
 
 To play please install PySimpleGUI,download the repo and run main.py
-![Alt text](images/image-1.png)
+![Alt text](image.png)
 
 Working login database,tutorial window,first game with a database...
-
+![Alt text](images/image.png)
 
 CLOSE PIC:
 <a href="https://www.flaticon.com/free-icons/close" title="close icons">Close icons created by riajulislam - Flaticon</a>

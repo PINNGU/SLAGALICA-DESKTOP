@@ -60,7 +60,7 @@ class GameOne():
                  psg.Button(button_text = self.letters[11],size=(13,5),pad = (0,0),key = "L11",mouseover_colors="#006685",button_color=("#F2FF00","#010345"))
                  ],
                  [psg.Text()],
-                 [psg.Frame("Your Word",title_color="#72FCD5",layout = [
+                 [psg.Frame("Your Word",title_color="#72FCD5",size = (555,70),layout = [
                         [
                             psg.Button(size = (5,3),pad = (0,0),visible=False,enable_events=False,key = "0",mouseover_colors="#006685",button_color=("#F2FF00","#010345")),
                             psg.Button(size = (5,3),pad = (0,0),visible=False,enable_events=False,key = "1",mouseover_colors="#006685",button_color=("#F2FF00","#010345")),
@@ -74,14 +74,12 @@ class GameOne():
                             psg.Button(size = (5,3),pad = (0,0),visible=False,enable_events=False,key = "9",mouseover_colors="#006685",button_color=("#F2FF00","#010345")),
                             psg.Button(size = (5,3),pad = (0,0),visible=False,enable_events=False,key = "10",mouseover_colors="#006685",button_color=("#F2FF00","#010345")),
                             psg.Button(size = (5,3),pad = (0,0),visible=False,enable_events=False,key = "11",mouseover_colors="#006685",button_color=("#F2FF00","#010345")),
-                        ]]),
+                        ]]),psg.Image("images/backspace.png",enable_events=True,key = "BACK",size = (40,40)),
 
                             
                             
                  ],
                 [
-
-                        psg.Image("images/backspace.png",enable_events=True,key = "BACK",size = (40,40)),
                         psg.Text("",key = "TEST",font="Franklin 16",text_color="#72FCD5")
                  ],
                  [
