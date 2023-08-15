@@ -3,7 +3,7 @@ from gameone import GameOne
 import json
 
 GAME_THEME = "DarkBlue10"
-VERSION = "V1.1"
+VERSION = "V1.2"
 
 #player = Login(GAME_THEME,VERSION)
 #if player.start_win():
@@ -12,7 +12,6 @@ file = open("words.json","r")
 words = json.load(file)
 words = tuple(words.keys())
 game_one = GameOne(GAME_THEME,words)
-
 
 game_one.start_win()
 

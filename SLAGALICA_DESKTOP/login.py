@@ -60,7 +60,7 @@ class Login():
     def tutorial_window(self):
         psg.theme(self.theme)
         lay = [
-            [psg.Push(),psg.Image("close.png",enable_events=True,pad = (0,0),key = "CLOSE",size = (24,24))],
+            [psg.Push(),psg.Image("images/close.png",enable_events=True,pad = (0,0),key = "CLOSE",size = (24,24))],
             [psg.Text("Slagalica,popular Serbian quiz-show, made in english.",text_color="#72FCD5",font = "Franklin 14")],
             [psg.Frame("Game #1",title_color="#72FCD5",expand_x=True,font = "Calibri 14",layout = [[
                 psg.Text("Very simple, test your vocabulary - enter the longest possible word!",text_color="#72FCD5",font = "Franklin 12")]])],
