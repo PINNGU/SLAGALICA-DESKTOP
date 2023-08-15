@@ -2,7 +2,7 @@
 
 
 To play please install PySimpleGUI,download the repo and run main.py
-![Alt text](image.png)
+
 
 Working login database,tutorial window,first game with a database...
 ![Alt text](images/image.png)
