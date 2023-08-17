@@ -22,6 +22,7 @@ player = Login(GAME_THEME,VERSION)
 game_two = GameTwo(GAME_THEME)  # init the second game
 
 game_two.get_number()
+game_two.start_win()
 
 #file.close()
 
