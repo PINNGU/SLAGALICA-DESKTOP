@@ -11,7 +11,7 @@ pip install -r requirements.txt
 
 
 
-Working login database,tutorial window,first game with a database...
+Working login database,tutorial window,first game,second game,scoring.
 ![Alt text](images/image.png)
 ![Alt text](images/Screenshot_1.jpg)
 ![Alt text](images/Screenshot_2.jpg)
