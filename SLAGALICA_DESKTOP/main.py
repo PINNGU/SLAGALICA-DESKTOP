@@ -4,12 +4,12 @@ from gametwo import GameTwo
 import json
 
 GAME_THEME = "DarkBlue10"
-VERSION = "V1.3"
+VERSION = "V2.0"
 
 player = Login(GAME_THEME,VERSION)
-finished_login = player.start_win()#
+finished_login = player.start_win()
+file = open("words.json","r")
 if finished_login:
-    file = open("words.json","r")
 
     words = json.load(file)
     words = tuple(words.keys())
@@ -26,11 +26,12 @@ if finished_login:
         player.score = player.score + game_two.score
 
         if game_two_finished:
-            print(player.score)
+            pass #THID GAME 
 
+player.new_scoreboard()
 file.close()
 
 
 
 
-#TODO third game,scoreboard and db
+

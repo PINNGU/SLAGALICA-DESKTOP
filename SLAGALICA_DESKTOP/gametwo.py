@@ -102,7 +102,6 @@ class GameTwo():
                 self.number = int(res)
                 self.digits = digits
                 self.solution = ex
-                print(f"{ex}  =  {res} , {digits}")
                 break
     
     def make_window(self):

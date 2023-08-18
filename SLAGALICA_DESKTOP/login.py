@@ -10,7 +10,6 @@ class Login():
     password = ""
     tutorial = False
     score = 0
-    total_score = ""
     players = []
     LOGGED_IN = False
 
@@ -21,7 +20,7 @@ class Login():
     def get_player_values(self,values):
         self.name = values["NAME"]
         self.password = values["PASS"]
-        self.age = str(values["AGE"])
+        self.age = round(values["AGE"])
         self.gender = "M" if  values["GENDER"] else "F"
 
     def get_all_players(self):
@@ -52,7 +51,7 @@ class Login():
 
 
     def add_new_user(self):
-        temp = {"NAME":self.name,"PASS":self.password,"AGE":self.age,"GENDER":self.gender,"SCORE":self.total_score}
+        temp = {"NAME":self.name,"PASS":self.password,"AGE":self.age,"GENDER":self.gender,"SCORE":self.score}
         self.players.append(temp)
 
 
@@ -146,7 +145,7 @@ class Login():
                     elif self.name == "":
                         window["NOTIFY"].update("Not a valid username.") 
                     else:
-                        self.add_new_user() # else add name
+                        self.add_new_user()
                         window["NOTIFY"].update("Successfuly signed in!")
                         self.LOGGED_IN = True
 
@@ -185,3 +184,12 @@ class Login():
         window.close()
         return False
     
+    def new_scoreboard(self):
+        with open("players.txt","w") as f:
+            for i in self.players:
+                if i["NAME"] == self.name:
+                    conv = int(i["SCORE"]) + self.score
+                    i["SCORE"] = conv
+            
+                f.write(f"{i['NAME']},{i['PASS']},{i['AGE']},{i['GENDER']},{i['SCORE']}\n")
+
