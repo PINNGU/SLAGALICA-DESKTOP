@@ -4,7 +4,7 @@ from gametwo import GameTwo
 import json
 
 GAME_THEME = "DarkBlue10"
-VERSION = "V2.0"
+VERSION = "V1.F"
 
 player = Login(GAME_THEME,VERSION)
 finished_login = player.start_win()
