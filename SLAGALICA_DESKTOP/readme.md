@@ -6,6 +6,8 @@ To play please install PySimpleGUI,download the repo and run main.py
 
 Working login database,tutorial window,first game with a database...
 ![Alt text](images/image.png)
+![Alt text](images/Screenshot_1.jpg)
+![Alt text](images/Screenshot_2.jpg)
 
 CLOSE PIC:
 <a href="https://www.flaticon.com/free-icons/close" title="close icons">Close icons created by riajulislam - Flaticon</a>

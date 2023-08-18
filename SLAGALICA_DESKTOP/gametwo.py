@@ -6,6 +6,7 @@ import time
 class GameTwo():
 
     game_going = True
+    score = 0
 
     def __init__(self,theme):
         self.theme = theme
@@ -18,6 +19,19 @@ class GameTwo():
 
         digits.extend((mid_dig,hight_dig))
         return digits
+    
+    def get_score(self,number):
+        if number == self.number:
+            self.score = 25
+        elif number + 1 == self.number or number - 1 == self.number:
+            self.score = 20
+        elif number + 2 == self.number or number - 2 == self.number:
+            self.score = 15
+        elif number + 3 == self.number or number - 3 == self.number:
+            self.score = 10
+        elif number + 4 < self.number or number - 4 > self.number:
+            self.score = 5
+
     
     def is_divisible(self,one,two,three = 0):
         ret = True
@@ -131,11 +145,18 @@ class GameTwo():
                  psg.Button("-",size=(5,3),key = "-",pad = (0,0),mouseover_colors="#006685"),
                  psg.Button("*",size=(5,3),key = "*",pad = (0,0),mouseover_colors="#006685"),
                  ],
-                [psg.Push(),
+                [
+                psg.Frame("Machine's solution:",key = "MSOLUTION",layout = [
+                        [psg.Text("",key = "SOLUTION",font="Franklin 18",text_color="#FCC80D")]
+                    ]) ,
+                psg.Text("",key = "POINTS",font="Franklin 14",text_color="#FCC80D"), 
+                psg.Image("images/continue.png",key = "CONTINUE",pad = (0,0),visible=False,enable_events=True),
+                psg.Push(),
                  psg.Button("/",size=(5,3),key = "/",pad = (0,0),mouseover_colors="#006685"),
                  psg.Button("(",size=(5,3),key = "(",pad = (0,0),mouseover_colors="#006685"),
                  psg.Button(")",size=(5,3),key = ")",pad = (0,0),mouseover_colors="#006685"),
                  ],
+              
             
             ]
         
@@ -158,14 +179,39 @@ class GameTwo():
             if self.game_going:
                 win["TIME"].update(cur_time)
 
-            if cur_time < 0:
+            if cur_time < 0 and self.game_going:
                 self.game_going = False
                 win["CHECK"].update(f"Time ran out.You've submitted {x}.")
+                self.get_score(x)
+                win["POINTS"].update(f"You won {self.score} points.")
+                win["MSOLUTION"].update(visible = True)
+                win["SOLUTION"].update(self.solution)
+                win["CONTINUE"].update(visible = True)
+                win["/"].update(visible = False)
+                win["("].update(visible = False)
+                win[")"].update(visible = False)
+                win["*"].update(visible = False)
+                win["-"].update(visible = False)
+                win["+"].update(visible = False)
 
-            if event == "SUBMIT":
+            if event == "SUBMIT" and self.game_going:
                 self.game_going = False
                 win["CHECK"].update(f"You've submitted {x}.")
+                self.get_score(x)
+                win["POINTS"].update(f"You won {self.score} points.")
+                win["MSOLUTION"].update(visible = True)
+                win["SOLUTION"].update(self.solution)
+                win["CONTINUE"].update(visible = True)
+                win["/"].update(visible = False)
+                win["("].update(visible = False)
+                win[")"].update(visible = False)
+                win["*"].update(visible = False)
+                win["-"].update(visible = False)
+                win["+"].update(visible = False)
 
+            if event == "CONTINUE":
+                win.close()
+                return True
 
             if event == psg.WIN_CLOSED or event == "CLOSE":
                 break
@@ -198,7 +244,6 @@ class GameTwo():
             if self.game_going:
                 try:
                     x = eval("".join(text_out))
-                    x = int(x)
                     win["CHECK"].update(f"Result is {x}.")
 
                 except:
@@ -207,3 +252,4 @@ class GameTwo():
 
 
         win.close()
+        return False
