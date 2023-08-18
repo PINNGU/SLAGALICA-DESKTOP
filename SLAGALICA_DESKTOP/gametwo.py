@@ -1,8 +1,11 @@
 import numpy as np
 import PySimpleGUI as psg
 import random
+import time
 
 class GameTwo():
+
+    game_going = True
 
     def __init__(self,theme):
         self.theme = theme
@@ -99,7 +102,7 @@ class GameTwo():
                                       [ 
                                         [psg.Text(f"{self.number}",key = "NUMBER",font="Franklin 36",text_color="#FCC80D")]
                                         ]),psg.Push()],
-                [psg.HorizontalSeparator()],
+                [psg.ProgressBar(orientation = 'h',max_value = 60,key = "TIME",size = (60,15))],
                 [
                     psg.Text(""),
                     psg.Button(button_text = self.digits[0],size=(7,4),key = "D0",pad = (0,0),mouseover_colors="#006685",button_color=("#F2FF00","#010345")),
@@ -117,9 +120,13 @@ class GameTwo():
                     psg.Frame("Your input:",size = (580,65),key = "INPUTF",layout = [
                         [psg.Text("",key = "INPUT",font="Franklin 20",text_color="#FCC80D")]
                     ]) ,
-                psg.Image("images/backspace.png",enable_events=True,key = "BACK",size = (40,40))
+                psg.Image("images/backspace.png",enable_events=True,key = "BACK",size = (40,40)),
+                psg.Text(),
+                psg.Image("images/submit.png",enable_events=True,key = "SUBMIT")
                 ],
-                [psg.Push(),
+                [
+                 psg.Text("",key = "CHECK",font="Franklin 14",text_color="#FCC80D"),
+                 psg.Push(),
                  psg.Button("+",size=(5,3),key = "+",pad = (0,0),mouseover_colors="#006685"),
                  psg.Button("-",size=(5,3),key = "-",pad = (0,0),mouseover_colors="#006685"),
                  psg.Button("*",size=(5,3),key = "*",pad = (0,0),mouseover_colors="#006685"),
@@ -137,45 +144,65 @@ class GameTwo():
     def start_win(self):
 
         win = self.make_window()
+        start = time.time()
         text_out = [""]
+        x = 0
         dig_dict = {"D0":self.digits[0],"D1":self.digits[1],"D2":self.digits[2],"D3":self.digits[3],"D4":self.digits[4],"D5":self.digits[5]}
         clicked = []
         must_sign = True
 
         while True:
-            event,values = win.read()
+            event,values = win.read(timeout=10)
+
+            cur_time = 60 - (time.time() - start)
+            if self.game_going:
+                win["TIME"].update(cur_time)
+
+            if cur_time < 0:
+                self.game_going = False
+                win["CHECK"].update(f"Time ran out.You've submitted {x}.")
+
+            if event == "SUBMIT":
+                self.game_going = False
+                win["CHECK"].update(f"You've submitted {x}.")
+
 
             if event == psg.WIN_CLOSED or event == "CLOSE":
                 break
 
-            if event in dig_dict and event not in clicked and must_sign:
+            if event in dig_dict and event not in clicked and must_sign and self.game_going:
                 clicked.append(event)
                 text_out.append(str(dig_dict[event]))
                 win["INPUT"].update("".join(text_out))
                 win[event].update("")
                 must_sign = False
+           
 
-            if event == "BACK" and len(clicked) > 0 and text_out[-1] not in ["*","/","+","-","(",")"]:
+            if event in ["*","/","+","-","(",")"] and self.game_going:
+                text_out.append(event)
+                win["INPUT"].update("".join(text_out))
+                must_sign = True
+                
+
+            if event == "BACK" and len(clicked) > 0 and text_out[-1] not in ["*","/","+","-","(",")"] and self.game_going:
                 win[clicked[-1]].update(dig_dict[clicked[-1]])
                 text_out.pop()
                 clicked.pop()
                 win["INPUT"].update("".join(text_out))
                 must_sign = True
-
-            if event == "BACK"  and text_out[-1] in ["*","/","+","-","(",")"]:
+            elif event == "BACK"  and text_out[-1] in ["*","/","+","-","(",")"] and self.game_going:
                 text_out.pop()
                 win["INPUT"].update("".join(text_out))
+                if text_out[-1] not in ["*","/","+","-","(",")"] and text_out[0] != "":
+                    must_sign = False
+            if self.game_going:
+                try:
+                    x = eval("".join(text_out))
+                    x = int(x)
+                    win["CHECK"].update(f"Result is {x}.")
 
-
-            if event in ["*","/","+","-","(",")"]:
-                if event == "(":
-                    if text_out[-1] not in str(dig_dict.values()):
-                        text_out.append(event)
-                else:
-                    text_out.append(event)
-                    win["INPUT"].update("".join(text_out))
-                    if event in ["*","/","+","-","("]:
-                        must_sign = True
+                except:
+                    win["CHECK"].update("Not a valid expression.")
 
 
 
