@@ -1,7 +1,10 @@
 # SLAGALICA QUIZ SHOW
 
 
-To play please install PySimpleGUI,download the repo and run main.py
+To play make sure all requirements are installed and run main.py
+pip install -r requirements.txt
+
+
 
 
 Working login database,tutorial window,first game with a database...
