@@ -2,6 +2,10 @@
 
 
 To play make sure all requirements are installed and run main.py
+
+
+
+
 pip install -r requirements.txt
 
 
