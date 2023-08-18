@@ -12,9 +12,14 @@ pip install -r requirements.txt
 
 
 Working login database,tutorial window,first game,second game,scoring.
+
+
+
+![Alt text](images/Screenshot_3.jpg)
 ![Alt text](images/image.png)
 ![Alt text](images/Screenshot_1.jpg)
 ![Alt text](images/Screenshot_2.jpg)
+
 
 CLOSE PIC:
 <a href="https://www.flaticon.com/free-icons/close" title="close icons">Close icons created by riajulislam - Flaticon</a>
